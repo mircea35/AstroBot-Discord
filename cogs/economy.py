@@ -85,10 +85,8 @@ class economy(commands.Cog):
             file.close()
             await interaction.response.send_message("You've doubled your Hugs!!! Really lucky!")
         else:
-            file = open(f"./bank/{interaction.user.id}.txt", "r")
-            temp_int = int(file.read())
             file = open(f"./bank/{interaction.user.id}.txt", "w")
-            file.write(str(temp_int * 0))
+            file.write(str(0))
             file.close()
             await interaction.response.send_message("You've lost all hugs. T-T")
 
