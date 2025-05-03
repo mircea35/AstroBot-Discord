@@ -67,6 +67,7 @@ class economy(commands.Cog):
         else:
             await interaction.response.send_message(f">{emoteArray[0]}|{emoteArray[1]}|{emoteArray[2]}<\n Better luck next time!")
 
+
     @app_commands.command(name="all_in", description="Double or nothing!")
     async def all_in(self, interaction: discord.Interaction):
         temp_val = random.randint(1,100)
@@ -84,6 +85,7 @@ class economy(commands.Cog):
             file.write(str(0))
             file.close()
             await interaction.response.send_message("You've lost all hugs. T-T")
+
 
     @app_commands.command(name="hug", description="Give a hug to someone on the server")
     async def hug(self, interaction: discord.Interaction, hugged_user: discord.Member = None):
