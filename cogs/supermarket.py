@@ -15,7 +15,7 @@ class supermarket(commands.Cog):
 
 
     @app_commands.command(name="st_pricing", description="Helps you to set prices for Supermarket Together")
-    async def st_pricing(self, interaction: discord.Interaction, price: float = 0):
+    async def st_pricing(self, interaction: discord.Interaction, price: float = 0.00):
         temp_int = price * 2.00 - 0.10
         await interaction.response.send_message(f"Set price to {temp_int}")
 
