@@ -27,6 +27,13 @@ class economy(commands.Cog):
         file.close()
         await interaction.response.send_message(f"You have {temp_int} hugs!")
     
+    @app_commands.command(name="payday", description="See the hug balance")
+    async def balance(self, interaction: discord.Interaction):
+        file = open(f"./bank/{interaction.user.id}.txt", "r")
+        temp_int = int(file.read())
+        file.close()
+        await interaction.response.send_message(f"You have {temp_int} hugs!")
+
     @app_commands.command(name="slots", description="Get more hugs from gambling!")
     async def slots(self, interaction: discord.Interaction):
         emoteArray = []
@@ -81,7 +88,7 @@ class economy(commands.Cog):
             file = open(f"./bank/{interaction.user.id}.txt", "r")
             temp_int = int(file.read())
             file = open(f"./bank/{interaction.user.id}.txt", "w")
-            file.write(str(0))
+            file.write("0")
             file.close()
             await interaction.response.send_message("You've lost all hugs. T-T")
 
