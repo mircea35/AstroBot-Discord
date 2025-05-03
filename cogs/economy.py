@@ -22,10 +22,14 @@ class economy(commands.Cog):
 
     @app_commands.command(name="balance", description="See the hug balance")
     async def balance(self, interaction: discord.Interaction):
-        file = open(f"./bank/{interaction.user.id}.txt", "r")
-        temp_int = int(file.read())
-        file.close()
-        await interaction.response.send_message(f"You have {temp_int} hugs!") 
+        try:
+            file = open(f"./bank/{interaction.user.id}.txt", "r")
+            temp_int = int(file.read())
+            file.close()
+            await interaction.response.send_message(f"You have {temp_int} hugs!") 
+        except:
+            print(Exception)
+            await interaction.response.send_message("Error")
 
     @app_commands.command(name="slots", description="Get more hugs from gambling!")
     async def slots(self, interaction: discord.Interaction):
