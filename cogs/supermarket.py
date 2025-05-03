@@ -22,7 +22,8 @@ class supermarket(commands.Cog):
     @app_commands.command(name="st_pricing_cents", description="Helps you to set prices for Supermarket Together but uses only cents. 100 = 1$")
     async def st_pricing_cents(self, interaction: discord.Interaction, price: int = 0):
         temp_int = price * 2 - 10
-        await interaction.response.send_message(f"Set price to {temp_int}")
+        temp_float = temp_int / 100
+        await interaction.response.send_message(f"Set price to {temp_float}")
 
 
 async def setup(bot: commands.Bot) -> None:
